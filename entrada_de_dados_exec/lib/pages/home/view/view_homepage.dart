@@ -31,54 +31,57 @@ class _HomePageExerciseState extends State<HomePageExercise> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.dark_mode_outlined),
-          ),
-        ],
-        title: const Text(Strings.titleApp),
-        centerTitle: true,
-      ),
-      body: PageView(
-        controller: pageController,
-        onPageChanged: onPageChanged,
-        children: const [
-          Calculator(),
-          Login(),
-          Focused(),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.purple,
-        onTap: _onItemTapped,
-        currentIndex: selectedPage,
-        selectedItemColor: Colors.amberAccent[700],
-        unselectedItemColor: Colors.purple,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calculate_outlined),
-            label: 'Calculadora',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.login_outlined),
-            label: 'Login',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.center_focus_weak),
-            label: 'Focus',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today_outlined),
-            label: 'Idade',
-          ),
-        ],
+    return GestureDetector(
+      onTap: FocusScope.of(context).unfocus,
+      child: Scaffold(
+        appBar: AppBar(
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.dark_mode_outlined),
+            ),
+          ],
+          title: const Text(Strings.titleApp),
+          centerTitle: true,
+        ),
+        body: PageView(
+          controller: pageController,
+          onPageChanged: onPageChanged,
+          children: const [
+            Calculator(),
+            Login(),
+            Focused(),
+          ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.purple,
+          onTap: _onItemTapped,
+          currentIndex: selectedPage,
+          selectedItemColor: Colors.amberAccent[700],
+          unselectedItemColor: Colors.purple,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home_outlined),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.calculate_outlined),
+              label: 'Calculadora',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.login_outlined),
+              label: 'Login',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.center_focus_weak),
+              label: 'Focus',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_today_outlined),
+              label: 'Idade',
+            ),
+          ],
+        ),
       ),
     );
   }
