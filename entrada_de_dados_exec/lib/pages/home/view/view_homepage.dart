@@ -48,6 +48,7 @@ class _HomePageExerciseState extends State<HomePageExercise> {
           controller: pageController,
           onPageChanged: onPageChanged,
           children: const [
+            Center(child: Text('HOMEPAGE')),
             Calculator(),
             Login(),
             Focused(),
